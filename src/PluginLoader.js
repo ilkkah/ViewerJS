@@ -66,7 +66,7 @@
             }()),
             {
                 supportsMimetype:      function ( mimetype ) {
-                    return (mimetype === 'application/pdf');
+                    return (mimetype.startsWith('application/pdf'));
                 },
                 supportsFileExtension: function ( extension ) {
                     return (extension === 'pdf');
