@@ -58,7 +58,7 @@
                     supportsFileExtension: function ( extension ) {
                         return (odfFileExtensions.indexOf(extension) !== -1);
                     },
-                    path:                  "./ODFViewerPlugin",
+                    path:                  "./ODFViewerPlugin.js",
                     getClass:              function () {
                         return ODFViewerPlugin;
                     }
@@ -66,12 +66,12 @@
             }()),
             {
                 supportsMimetype:      function ( mimetype ) {
-                    return (mimetype === 'application/pdf');
+                    return (mimetype.startsWith('application/pdf'));
                 },
                 supportsFileExtension: function ( extension ) {
                     return (extension === 'pdf');
                 },
-                path:                  "./PDFViewerPlugin",
+                path:                  "./PDFViewerPlugin.js",
                 getClass:              function () {
                     return PDFViewerPlugin;
                 }
@@ -121,7 +121,7 @@
                     supportsFileExtension: function ( extension ) {
                         return (imageFileExtensions.indexOf(extension) !== -1);
                     },
-                    path:                  "./ImageViewerPlugin",
+                    path:                  "./ImageViewerPlugin.js",
                     getClass:              function () {
                         return ImageViewerPlugin;
                     }
@@ -161,7 +161,7 @@
                     supportsFileExtension: function ( extension ) {
                         return (multimediaFileExtensions.indexOf(extension) !== -1);
                     },
-                    path:                  "./MultimediaViewerPlugin",
+                    path:                  "./MultimediaViewerPlugin.js",
                     getClass:              function () {
                         return MultimediaViewerPlugin;
                     }
@@ -175,7 +175,7 @@
             supportsFileExtension: function () {
                 return true;
             },
-            path:                  "./UnknownFilePlugin",
+            path:                  "./UnknownFilePlugin.js",
             getClass:              function () {
                 return UnknownFilePlugin;
             }

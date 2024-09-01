@@ -1,12 +1,12 @@
 var pdfjs_version    = '1.8.355',
     ViewerJS_version = '0.6.6';
 
-function loadPlugin( pluginName, callback ) {
+function loadPlugin( pluginFile, callback ) {
     "use strict";
     var script    = document.createElement('script');
     script.async  = false;
     script.onload = callback;
-    script.src    = pluginName + '.js';
+    script.src    = pluginFile;
     script.type   = 'text/javascript';
     document.head.appendChild(script);
 }
@@ -696,7 +696,7 @@ function Viewer( viewerPlugin, parameters ) {
                     supportsFileExtension: function ( extension ) {
                         return (odfFileExtensions.indexOf(extension) !== -1);
                     },
-                    path:                  "./ODFViewerPlugin",
+                    path:                  "./ODFViewerPlugin.js",
                     getClass:              function () {
                         return ODFViewerPlugin;
                     }
@@ -704,12 +704,12 @@ function Viewer( viewerPlugin, parameters ) {
             }()),
             {
                 supportsMimetype:      function ( mimetype ) {
-                    return (mimetype === 'application/pdf');
+                    return (mimetype.startsWith('application/pdf'));
                 },
                 supportsFileExtension: function ( extension ) {
                     return (extension === 'pdf');
                 },
-                path:                  "./PDFViewerPlugin",
+                path:                  "./PDFViewerPlugin.js",
                 getClass:              function () {
                     return PDFViewerPlugin;
                 }
@@ -759,7 +759,7 @@ function Viewer( viewerPlugin, parameters ) {
                     supportsFileExtension: function ( extension ) {
                         return (imageFileExtensions.indexOf(extension) !== -1);
                     },
-                    path:                  "./ImageViewerPlugin",
+                    path:                  "./ImageViewerPlugin.js",
                     getClass:              function () {
                         return ImageViewerPlugin;
                     }
@@ -799,7 +799,7 @@ function Viewer( viewerPlugin, parameters ) {
                     supportsFileExtension: function ( extension ) {
                         return (multimediaFileExtensions.indexOf(extension) !== -1);
                     },
-                    path:                  "./MultimediaViewerPlugin",
+                    path:                  "./MultimediaViewerPlugin.js",
                     getClass:              function () {
                         return MultimediaViewerPlugin;
                     }
@@ -813,7 +813,7 @@ function Viewer( viewerPlugin, parameters ) {
             supportsFileExtension: function () {
                 return true;
             },
-            path:                  "./UnknownFilePlugin",
+            path:                  "./UnknownFilePlugin.js",
             getClass:              function () {
                 return UnknownFilePlugin;
             }
